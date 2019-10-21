@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
+<style>
+body {
+ background-image: url('static/img/bg8.jpg');
+ background-color: #cccccc;
+ background-size:100% 100%;
+}
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.header {
+  width = 100%;
+  padding: 60px;
+  text-align: center;
+  color: black;
+  font-size: 30px;
+}
+
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 100%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td {
+  text-align: left;
+  max-width: 0;
+  overflow:hidden;
+  white-space: nowrap;
+  border-bottom:1pt solid black;
+  font-size: 14px;
+
+}
+td.columnA {
+   width: 11%;
+}
+
+td.columnB{
+   width: 20%;
+}
+td.columnZ{
+   width: 10%;
+   text-align: center;
+}
+th {
+  text-align: center;
+  background-color:  #ABEBC6;
+  color: black;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child {
+  background-color: #dddddd;
+  height: 40px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+.cell {
+  max-width: 100px; /* tweak me please */
+  white-space : nowrap;
+  overflow : hidden;
+}
+
+.expand-small-on-hover:hover {
+  max-width : 200px; 
+  text-overflow: ellipsis;
+}
+
+.expand-maximum-on-hover:hover {
+  max-width : 200px; 
+}
+
+.left{
+  float:left;
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+  float: left;
+}
+
+p {
+  margin: 0;
+}
+
+</style>
+
+<body>
+<div class="header">
+  <h1 style = "font-family:Bilbo Swash Caps; font-size:52px">Power My Play</h1>
+</div>
+
+<div class="container">
+     <div class="starter-template">
+	   <div style = "display: inline-block; width: 50%;">
+       <b style = "font-size:26px; ">The results that best match your need:</b>
+	   </div>
+     </div>
+
+	 <div style="overflow-x:auto;">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <table style="text-align:center;" cellpadding= "10">
+     <tr  style = "text-align: center;"><th></th><th>Title</th><th>Description</th><th>Price</th><th>Views</th><th>Listing ID</th></tr>
+     {% for toy in toys %}
+     <tr><td class = 'columnA'><a href="{{toy['url']}}"><img src="{{ toy['img']}}"></a></td><td class = 'columnB'>{{toy['title']}}</td><td class = "cell expand-maximum-on-hover">{{toy['description']}}</td><td class = 'columnZ'>{{toy['price']}}</td><td class = 'columnZ'>{{ toy['view']}}</td><td class = 'columnZ'>{{toy['ls']}}</td></tr> <!-- <td class = 'columnZ'>{{toy['ls']}}</td> -->
+     {% endfor %}
+     </table>
+	 </div>
+</div>
+
+  
+</body>
+</html>

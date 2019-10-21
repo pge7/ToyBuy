@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
+<script>
+
+</script>
+<style>
+body {
+ background-image: url('static/img/bg8.jpg');
+ background-color: #cccccc;
+ background-size: 100% 100%;
+}
+.container {
+  max-width: 30%;
+  margin: auto;
+  text-align: center;
+
+}
+
+
+
+.header {
+  width:100%;
+  padding: 20px;
+  height:100px;
+  text-align: center;
+  color: white;
+  font-color: white;
+  font-size: 30px;
+  
+}
+input[type=text] {
+  width: 180px;
+  height: 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 4px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.baby {
+   border-radius: 25px;
+   background-color: #ABEBC6;
+   opacity: 0.75;
+}
+
+
+.toddler {
+   border-radius: 25px;
+   background-color: #ABEBC6;
+   opacity: 0.75;
+}
+.button2 {border-radius: 4px;}
+
+/* Green */
+.success {
+  border-color: gray;
+  color: gray;
+}
+
+.success:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+* {box-sizing: border-box}
+
+/* Full-width input fields 
+  input[type=text], input[type=password] {
+  width: 200%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}*/
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+
+</style>
+
+<body>
+<div class = 'logo'>
+ <img src= "{{ logo_image }}"   alt="" width="100%" height="150">
+</div>
+<div class="header">
+  <h1 style = " font-size:68px; color:white; ">Power My Play</h1>
+</div>
+  <div class="container" >
+
+  <form action="{{ url_for('toys_output') }}" method="post" id = 'toy'>
+    <h1 style = "text-align: center; color: white;  height: 50%; margin-top: 20%;">Start the Journey</h1>
+	
+	<div class = 'baby'>
+	<br>
+    <label style="font-size:24px;"> <b> Baby (0 ~ 12 month)</b> </label> <br><br>
+
+	<input type="checkbox" name="baby" value="crawling standing pulling pushing"/> <b style="font-size:20px;">Motor  </b>
+	<input type="checkbox" name="baby" value="baby music feel black white"/> <b style="font-size:20px;">Sensory </b>
+	<input type="checkbox" name="baby" value="baby feel cognitive book shape number alphabet" /> <b style="font-size:20px;">Cognitive </b>
+	<br><br>
+    </div>
+	<br>
+    <br>
+	<div class = 'toddler'>
+	<br>
+	<label style="font-size:24px;"> <b>Toddler (13 ~ 24 months)</b></label><br><br>
+	<input type="checkbox" name="toddler" value="toddler item wood building creative" /><b style="font-size:20px;">Imaginative play</b>
+	<input type="checkbox" name="toddler" value="play feel set" style="font-size:20px;"/> <b style="font-size:20px;">Educational Play</b>
+	<br><br>
+	<br>
+	</div>
+	<br>
+    <div class="clearfix">
+      <p><button type="submit" class="button2"><b style="font-size:22px;">Submit</b></button></p>
+    </div>
+  </form>
+  </div>
+</body>
+</html>
